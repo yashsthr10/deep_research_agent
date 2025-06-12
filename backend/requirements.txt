@@ -12,3 +12,4 @@ uvicorn
 websockets 
 fastapi
 wikipedia
+langsmith[otel]

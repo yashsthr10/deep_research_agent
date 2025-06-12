@@ -4,7 +4,6 @@ import asyncio
 import json
 from agent import app as agent
 from dotenv import load_dotenv
-from phoenix.otel import register
 from langsmith import Client
 
 load_dotenv()
