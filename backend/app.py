@@ -11,6 +11,7 @@ load_dotenv()
 
 app = FastAPI()
 
+# creating the client for langsmith
 client = Client()
 
 app.add_middleware(
@@ -25,6 +26,7 @@ app.add_middleware(
 async def health():
     return {"status": "ok"}
 
+# creating a websocket endpoint to stream the output to react frontend
 @app.websocket("/ws/research")
 async def websocket_endpoint(websocket: WebSocket):
     await websocket.accept()
