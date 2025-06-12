@@ -1,29 +1,31 @@
+# ingress.yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: yash-ingress
-  namespace: default
   annotations:
     nginx.ingress.kubernetes.io/proxy-read-timeout: "3600"
     nginx.ingress.kubernetes.io/proxy-send-timeout: "3600"
-    nginx.ingress.kubernetes.io/upgrade: "websocket"
-    nginx.ingress.kubernetes.io/connection-proxy-header: "upgrade"
+    nginx.ingress.kubernetes.io/proxy-http-version: "1.1"
+    nginx.ingress.kubernetes.io/proxy-set-header: "Upgrade $http_upgrade"
+    nginx.ingress.kubernetes.io/proxy-set-header: "Connection upgrade"
 spec:
-  ingressClassName: nginx  
+  ingressClassName: nginx
   rules:
-    - http:
-        paths:
-          - path: /ws
-            pathType: ImplementationSpecific  
-            backend:
-              service:
-                name: fastapi-service
-                port:
-                  number: 80
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: react-service
-                port:
-                  number: 80
+  - http:
+      paths:
+      - path: /ws/  # Trailing slash for subpath matching
+        pathType: Prefix
+        backend:
+          service:
+            name: fastapi-service
+            port: 
+              number: 8000  # Match service port
+              
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: react-service
+            port: 
+              number: 80

@@ -22,7 +22,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/health")
+@app.get("/ws/health")
 async def health():
     return {"status": "ok"}
 
