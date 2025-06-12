@@ -1,0 +1,88 @@
+# Node.js (React)
+node_modules/
+build/
+dist/
+.env
+.env*
+!.env.example
+
+
+# React tools
+.vite/
+.cache/
+.npm/
+
+# Python (FastAPI)
+__pycache__/
+*.py[cod]
+*.egg-info/
+venv/
+env/
+ENV/
+.Python
+.mypy_cache/
+.pytest_cache/
+coverage.*
+htmlcov/
+*.sqlite3
+*.log
+
+# Docker
+*.tar
+*.img
+docker-compose.override.yml
+*.pid
+
+# Kubernetes
+*.yaml~        # temp edited files
+.kube/
+*.kubeconfig
+helm-chart-output/
+secrets.yaml
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+*.tfvars
+*.tfvars.json
+terraform.tfvars
+override.tf
+override.tf.json
+
+# Mac & OS crap
+.DS_Store
+Thumbs.db
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+*.bak
+*.tmp
+*.orig
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Linting
+.pylint.d/
+.eslintcache
+stylelint.log
+
+# Others
+*.zip
+*.gz
+*.tar.gz
+*.bak
+coverage.xml
+coverage.json
+
+# secrets
+key.json

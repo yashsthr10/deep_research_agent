@@ -1,0 +1,24 @@
+services:
+  fastapi:
+    build:
+      context: ./backend
+      dockerfile: dockerfile
+    container_name: fastapi
+    ports:
+      - "8000:8000"
+    networks:
+      - monitoring-net
+
+  react:
+    build:
+      context: ./frontend
+      dockerfile: dockerfile
+    container_name: react  
+    ports:
+      - "80:80"  
+    networks:
+      - monitoring-net
+
+networks: 
+  monitoring-net:
+    driver: bridge
