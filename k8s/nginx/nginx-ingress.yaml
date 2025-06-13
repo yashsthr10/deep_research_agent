@@ -14,8 +14,8 @@ spec:
   rules:
   - http:
       paths:
-      - path: /ws/  # Trailing slash for subpath matching
-        pathType: Prefix
+      - path: /ws/(.*)
+        pathType: ImplementationSpecific
         backend:
           service:
             name: fastapi-service
