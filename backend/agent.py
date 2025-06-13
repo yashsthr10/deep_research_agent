@@ -387,7 +387,7 @@ workflow.add_edge("compile", "report")
 workflow.add_edge("report", END)
 
 # Compile the workflow
-app = workflow.compile()
+lg_agent = workflow.compile()
 
 """## Testing the Agent"""
 
@@ -407,7 +407,7 @@ if __name__ == "__main__":
         topic = test_topics[0]
         print(f"Researching: {topic}")
 
-        output = app.invoke({"topic": topic})
+        output = lg_agent.invoke({"topic": topic})
 
         print("\n" + "="*50)
         print("FINAL REPORT")

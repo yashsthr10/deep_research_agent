@@ -2,7 +2,7 @@ from fastapi import FastAPI, WebSocket
 from fastapi.middleware.cors import CORSMiddleware
 import asyncio
 import json
-from agent import app as agent
+from agent import lg_agent
 from dotenv import load_dotenv
 from langsmith import Client
 
@@ -35,7 +35,7 @@ async def websocket_endpoint(websocket: WebSocket):
             print(f"📩 Topic received: {topic}")
 
             output = {}
-            async for step in agent.astream({"topic": topic}):
+            async for step in lg_agent.astream({"topic": topic}):
                 # Live stream processing chunks
                 await websocket.send_text(json.dumps({
                     "type": "stream",
