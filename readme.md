@@ -116,4 +116,3 @@ MIT — go build, break, and remix it however you want.
 * Google Cloud GKE
 * Gemini (Google AI)
 * DuckDuckGo & Wikipedia APIs
-* Your sweat, code, and curiosity 💪
